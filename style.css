@@ -1,0 +1,286 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #121212, #1e1e1e);
+    color: #ffffff;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+  
+  /* Header Styles */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease-in-out;
+  }
+  
+  header:hover {
+    background: rgba(0, 0, 0, 1);
+  }
+  
+  header .logo h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ff6f61;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    animation: fadeIn 2s ease;
+  }
+  
+  header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+  }
+  
+  header nav ul li a {
+    font-size: 1.2rem;
+    color: #ffffff;
+    text-decoration: none;
+    position: relative;
+    padding: 10px 15px;
+    transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
+  }
+  
+  header nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    height: 3px;
+    width: 0;
+    background: #ff6f61;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  header nav ul li a:hover {
+    color: #ff6f61;
+  }
+  
+  header nav ul li a:hover::after {
+    width: 100%;
+  }
+  
+  /* Hero Section */
+  .hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    background: radial-gradient(circle, #0f2027, #203a43, #2c5364);
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1), transparent);
+    animation: spin 20s linear infinite;
+    z-index: 0;
+  }
+  
+  .hero h2 {
+    font-size: 4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #ff6f61, #ffd452);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+    animation: fadeInUp 1.5s ease forwards;
+    z-index: 1;
+  }
+  
+  .hero p {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 30px;
+    animation: fadeInUp 2s ease forwards;
+    z-index: 1;
+  }
+  
+  .hero button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background: linear-gradient(to right, #ff6f61, #ffd452);
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 111, 97, 0.5);
+    transition: all 0.4s ease-in-out;
+    animation: fadeInUp 2.5s ease forwards;
+  }
+  
+  .hero button:hover {
+    transform: scale(1.1);
+    background: linear-gradient(to right, #ffd452, #ff6f61);
+  }
+  
+  /* Scroll Indicator */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    animation: bounce 2s infinite;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  /* Section Styles */
+  section {
+    padding: 100px 50px;
+    text-align: center;
+  }
+  
+  .about, .services, .contact {
+    background: #181818;
+    border-radius: 20px;
+    margin: 50px 20px;
+    padding: 80px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transform: scale(0.95);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .about:hover, .services:hover, .contact:hover {
+    transform: scale(1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+  }
+  
+  /* Service Cards */
+  .service-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .service-card {
+    background: linear-gradient(135deg, #2c2c2c, #3a3a3a);
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1;
+    transition: transform 0.3s ease, background 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .service-card:hover {
+    transform: translateY(-10px);
+    background: linear-gradient(135deg, #ffd452, #ff6f61);
+  }
+  
+  /* Contact Form */
+  .contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .contact input, .contact textarea {
+    padding: 15px;
+    font-size: 1rem;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background: #1f1f1f;
+    color: #fff;
+    transition: border 0.3s ease;
+  }
+  
+  .contact input:focus, .contact textarea:focus {
+    border: 1px solid #ff6f61;
+  }
+  
+  .contact button {
+    background: linear-gradient(to right, #ff6f61, #ffd452);
+    color: #ffffff;
+    padding: 10px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .contact button:hover {
+    background: linear-gradient(to right, #ffd452, #ff6f61);
+    transform: scale(1.05);
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    color: #ffffff;
+    font-size: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
